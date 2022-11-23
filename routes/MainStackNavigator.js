@@ -19,4 +19,4 @@ function MainStackNavigator() {
     );
 }
 
-export default MainStackNavigator;
+export default MainStackNavigator; 
