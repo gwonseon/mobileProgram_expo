@@ -5,6 +5,7 @@ import Home from '../screen/Home';
 import Layout from '../screen/layout';
 import Weather from '../screen/Weather';
 import YoutubeViewer from '../screen/Youtubeviewer';
+import Image from '../screen/Image';
 
 const Nav = createBottomTabNavigator();
 
@@ -16,6 +17,8 @@ function MainTabNavigator() {
                 <Nav.Screen name = "Home" component={Home} options={{title: '추가 Home'}}/>
                 <Nav.Screen name = "Weather" component={Weather} options={{title: '날씨조회화면'}}/>
                 <Nav.Screen name = "YoutubeViwe" component={YoutubeViewer} options={{title: 'YOUTUBE'}}/>
+                <Nav.Screen name = 'Image' component={Image} options={{title : 'Image 슬라이드'}} />
+            
             </Nav.Navigator>
         </NavigationContainer>
     );

@@ -8,12 +8,53 @@ import {REACT_APP_WEATHER_KEY} from "@env";
 import axios from "axios";
 
 const weatherOptions = {
+    Haze: {
+        iconName: "weather-hail"
+    },
+    Thunderstorm: {
+        iconName: "weather-lightning"
+    },
+    Drizzle: {
+        iconName: "weather-pouring"
+    },
+    Rain: {
+        iconName: "weather-rainy"
+    },
+
     Clear: {
         iconName : "weather-sunny"
     },
     Clouds: {
         iconName : "weather-cloudy"
+    },
+    Snow: {
+        iconName: "weather-snowy"
+    },
+    Mist: {
+        iconName: "weather-fog"
+    },
+    Smoke: {
+        iconName: "weather-fog"
+    },
+    Dust: {
+        iconName: "weather-fog"
+    },
+    Fog: {
+        iconName: "weather-fog"
+    },
+    Sand: {
+        iconName: "weather-fog"
+    },Ash: {
+        iconName: "weather-fog"
+    },
+    Squall: {
+        iconName: "weather-partly-rainy"
+    },
+    Tornado: {
+        iconName: "weather-tornado"
     }
+
+
 }
 
 export default class Weather extends React.Component {
