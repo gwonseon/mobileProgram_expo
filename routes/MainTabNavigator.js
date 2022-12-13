@@ -6,20 +6,33 @@ import Layout from '../screen/layout';
 import Weather from '../screen/Weather';
 import YoutubeViewer from '../screen/Youtubeviewer';
 import Image from '../screen/Image';
+import Icon from 'react-native-vector-icons/Feather';
 
-const Nav = createBottomTabNavigator();
+const Tab = createBottomTabNavigator();
+
+
 
 function MainTabNavigator() {
     return (
         <NavigationContainer>
-            <Nav.Navigator initialRouteName='Home'>
-                <Nav.Screen name = "Layout" component={Layout} options={{title: '처음 Layout'}}/>
-                <Nav.Screen name = "Home" component={Home} options={{title: '추가 Home'}}/>
-                <Nav.Screen name = "Weather" component={Weather} options={{title: '날씨조회화면'}}/>
-                <Nav.Screen name = "YoutubeViwe" component={YoutubeViewer} options={{title: 'YOUTUBE'}}/>
-                <Nav.Screen name = 'Image' component={Image} options={{title : 'Image 슬라이드'}} />
+            <Tab.Navigator initialRouteName='Home'>
+                <Tab.Screen name = "Layout" component={Layout} options={{title: 'Layout',tabBarIcon: ({color, size}) => (
+              <Icon name="info" color={color} size={size} />
+            ),}}/>
+                <Tab.Screen name = "Home" component={Home} options={{title: 'Home',tabBarIcon: ({color, size}) => (
+              <Icon name="home" color={color} size={size} />
+            ),}}/>
+                <Tab.Screen name = "Weather" component={Weather} options={{title: 'Weather',tabBarIcon: ({color, size}) => (
+              <Icon name="cloud" color={color} size={size} />
+            ),}}/>
+                <Tab.Screen name = "YoutubeViwe" component={YoutubeViewer} options={{title: 'YOUTUBE',tabBarIcon: ({color, size}) => (
+              <Icon name="youtube" color={color} size={size} />
+            ),}}/>
+                <Tab.Screen name = 'Image' component={Image} options={{title : 'Image',tabBarIcon: ({color, size}) => (
+              <Icon name="image" color={color} size={size} />
+            ),}} />
             
-            </Nav.Navigator>
+            </Tab.Navigator>
         </NavigationContainer>
     );
 }

@@ -8,7 +8,8 @@ import {
   ImageBackground,
   Animated,
   useWindowDimensions,
-  Button
+  Button, 
+  Alert
 } from "react-native";
 
 
@@ -25,11 +26,28 @@ const images = ['https://blog.kakaocdn.net/dn/L9bGA/btqN01QOOoY/F4HFg2XxfJq4bfzi
 
 const App = () => {
   const scrollX = useRef(new Animated.Value(0)).current;
-
+ 
   const { width: windowWidth } = useWindowDimensions();
+  const createThreeButtonAlert = () =>
+    Alert.alert(
+      "Final Test Image Slide",
+      "누구세요",
+      [
+        {
+          text: "학생입니다", onPress: () => console.log("반가워ㅎㅎ")
+        },
+        { text: "교수님입니다", onPress: () => console.log("잘부탁드립니다 교수님") 
+        },
+        { text: "뚱인데요", onPress: () => console.log("찍찍찍") 
+        }
+
+      ],
+      { cancelable: false }
+
+    );
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={styles.container}>       
       <View style={styles.scrollContainer}>
         <ScrollView
           horizontal={true}
@@ -43,7 +61,8 @@ const App = () => {
                 }
               }
             }
-          ])}
+          ],
+          {useNativeDriver: false})}
           scrollEventThrottle={1}
         >
           {images.map((image, imageIndex) => {
@@ -79,12 +98,17 @@ const App = () => {
           })}
         </View>
       </View>
+      <View style={styles.container}>
+    
+    <Button title={"Who are you?"} onPress={createThreeButtonAlert} />
+    </View>
     </SafeAreaView>
+    
   );
  
 }
 
-const styles = StyleSheet.create({
+    const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
@@ -126,7 +150,13 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center"
+  },
+  container: {
+    flex: 1,
+    justifyContent: "space-around",
+    alignItems: "center"
   }
 });
+
 
 export default App;
